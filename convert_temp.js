@@ -33,7 +33,17 @@ const toggleDisplay = (label1Text, label2Text) => {
 *  event handler functions  *
 *****************************/
 const performConversion = () => {   
-
+   let conversionType = "";
+   if (($("to_celsius").checked)) {
+      conversionType = "celsius"
+   }else if (($("to_fahrenheit").checked)) {
+      conversionType = "fahrenheit"    
+   }else if (($("to_meters").checked)) {
+      conversionType = "meters"
+   }else if (($("to_feet").checked)) {
+      conversionType = "feet"
+   }
+ 
    const inputValue = parseFloat($("#value_entered").value);
    if (isNaN(inputValue)) {
        $("#message").textContent = "This is plain text content.";
@@ -41,7 +51,17 @@ const performConversion = () => {
 
    }else{
        $("#message").textContent = "";
-}
+
+       if (conversionType = "celcius") {
+          $("#value_computed").textContent =  calculateCelsius(inputValue).toFixed(2);      
+       }else if (($("to_fahrenheit").checked)) {
+          $("#value_computed").textContent =  calculateFahrenheit(inputValue).toFixed(2); 
+       }else if (($("to_meters").checked)) {
+          $("#value_computed").textContent =  calculateMeters(inputValue).toFixed(2);
+       }else if (($("to_feet").checked)) {
+          $("#value_computed").textContent =  calculateFeet(inputValue).toFixed(2);
+       }
+   }
 
 };
 
@@ -62,6 +82,3 @@ document.addEventListener("DOMContentLoaded", () => {
 	// move focus
 	$("#value_entered").focus();
 });
-
-
-
