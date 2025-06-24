@@ -1,6 +1,12 @@
-
-
-//DO NOT MODIFY LINES 8-10
+/*
+Cory Witt
+script.js
+INFO 1579
+Shaw
+06/23/2025
+*/
+ 
+"Use Strict";
 
 /*********************
 *  helper functions  *
@@ -8,10 +14,14 @@
 const $ = selector => document.querySelector(selector);
 const calculateCelsius = temp => (temp-32) * 5/9;
 const calculateFahrenheit = temp => temp * 9/5 + 32;
-//ADD YOUR CODE BELOW 
+const calculateMeters = meters => meters / 3.2808;
+const calculateFeet = feet => meters * 3.2808;
 
 const toggleDisplay = (label1Text, label2Text) => {
-    // update labels and clear disabled textbox
+    document.getElementById("label_1").textContent = label1Text;
+    document.getElementById("label_2").textContent = label2Text;
+    
+    document.getElementById('value_computed').textContent = "";
 
 
     // select text in degrees textbox
@@ -24,17 +34,31 @@ const toggleDisplay = (label1Text, label2Text) => {
 *****************************/
 const performConversion = () => {   
 
+   const inputValue = parseFloat($("#value_entered").value);
+   if (isNaN(inputValue)) {
+       $("#message").textContent = "This is plain text content.";
+       $("#value_entered").textContent = "";
+
+   }else{
+       $("#message").textContent = "";
+}
+
 };
 
 const toggleToCelsius = () => toggleDisplay("Enter F degrees:", "Degrees Celsius:");
 const toggleToFahrenheit = () => toggleDisplay("Enter C degrees:", "Degrees Fahrenheit:");
+
+const toggleToMeters = () => toggleDisplay("Enter feet:", "Meters:");
+const toggleToFeet = () => toggleDisplay("Enter meters:", "Feet:");
 
 document.addEventListener("DOMContentLoaded", () => {
 	// add event handlers
 	$("#convert").addEventListener("click", performConversion);
     $("#to_celsius").addEventListener("click", toggleToCelsius);
     $("#to_fahrenheit").addEventListener("click", toggleToFahrenheit);
-	
+	$("#to_meters").addEventListener("click", toggleToMeters);
+    $("#to_feet").addEventListener("click", toggleToFeet);
+
 	// move focus
 	$("#value_entered").focus();
 });
