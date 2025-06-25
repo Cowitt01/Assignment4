@@ -51,7 +51,7 @@ const performConversion = () => {
    const inputValue = parseFloat($("#value_entered").value);
    
    if (isNaN(inputValue)) {
-       $("#message").textContent = "This is plain text content.";
+       $("#message").textContent = "You must enter a valid number for " + conversionType + " conversions." ;
        $("#value_entered").textContent = "";
 
    }else{
