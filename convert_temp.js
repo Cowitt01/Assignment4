@@ -32,19 +32,24 @@ const toggleDisplay = (label1Text, label2Text) => {
 /****************************
 *  event handler functions  *
 *****************************/
-const performConversion = () => {   
-   let conversionType = "";
-   if (($("to_celsius").checked)) {
+const performConversion = () => { 
+   
+      let conversionType = "";
+
+   const selectedConversionRadio = $('input[name="conversion_type"]:checked')
+
+   if (selectedConversionRadio.id = "to_celsius") {
       conversionType = "celsius"
-   }else if (($("to_fahrenheit").checked)) {
+   }else if (selectedConversionRadio.id = "to_fahrenheit")  {
       conversionType = "fahrenheit"    
-   }else if (($("to_meters").checked)) {
+   }else if (selectedConversionRadio.id = "to_meters")  {
       conversionType = "meters"
-   }else if (($("to_feet").checked)) {
+   }else if (selectedConversionRadio.id = "to_feet")  {
       conversionType = "feet"
    }
- 
+
    const inputValue = parseFloat($("#value_entered").value);
+   
    if (isNaN(inputValue)) {
        $("#message").textContent = "This is plain text content.";
        $("#value_entered").textContent = "";
@@ -53,17 +58,16 @@ const performConversion = () => {
        $("#message").textContent = "";
 
        if (conversionType = "celcius") {
-          $("#value_computed").textContent =  calculateCelsius(inputValue).toFixed(2);      
-       }else if (($("to_fahrenheit").checked)) {
-          $("#value_computed").textContent =  calculateFahrenheit(inputValue).toFixed(2); 
-       }else if (($("to_meters").checked)) {
-          $("#value_computed").textContent =  calculateMeters(inputValue).toFixed(2);
-       }else if (($("to_feet").checked)) {
-          $("#value_computed").textContent =  calculateFeet(inputValue).toFixed(2);
+          $('#value_computed').value = (calculateCelsius(inputValue)).toFixed(2);     
+       }else if (conversionType = "fahrenheit") {
+          $('#value_computed').value = (calculateFahrenheit(inputValue)).toFixed(2);  
+       }else if (conversionType = "meters") {
+          $('#value_computed').value = (calculateMeters(inputValue)).toFixed(2); 
+       }else if (conversionType ="feet") {
+          $('#value_computed').value = (calculateFeet(inputValue)).toFixed(2);
        }
    }
-
-};
+}
 
 const toggleToCelsius = () => toggleDisplay("Enter F degrees:", "Degrees Celsius:");
 const toggleToFahrenheit = () => toggleDisplay("Enter C degrees:", "Degrees Fahrenheit:");
