@@ -3,7 +3,7 @@ Cory Witt
 script.js
 INFO 1579
 Shaw
-06/23/2025
+07/04/2025
 */
  
 "use strict";
@@ -21,11 +21,16 @@ const calculateMeters = meters => meters / 3.2808;            //feet to meters c
 const calculateFeet = feet => feet * 3.2808;                  //meters to feet calcuation
 
 const toggleDisplay = (label1Text, label2Text) => {           //Toggles the values for label 1 and label 2
-    document.getElementById("label_1").textContent = label1Text;
-    document.getElementById("label_2").textContent = label2Text;
-    $("#value_computed").value= "";
-    $("#value_entered").value= "";
-    $("#value_entered").focus();
+    
+    console.log("label1Text input parameter " + label1Text);                         //log label1Text value
+    console.log("label2text input parameter " + label2Text);                         //log label2Text Value
+
+    document.getElementById("label_1").textContent = label1Text;     //Set the label1 text content
+    document.getElementById("label_2").textContent = label2Text;     //Set the label2 text content
+    
+    $("#value_computed").value= "";                                  //Clear out value computed text
+    $("#value_entered").value= "";                                   //Clear out value entered text
+    $("#value_entered").focus();                                     //Set focus to value entered text
  
 }
 
@@ -35,7 +40,7 @@ const toggleDisplay = (label1Text, label2Text) => {           //Toggles the valu
 const performConversion = () => {   /* This function will check with conversion type the end user
                                        selected, check to make sure that the value entered by the 
                                        end user is numeric, and then perform the appropriate calcuation*/
-   
+$("#value_computed").value= "";   
  const selectedRadio = $('input[name="conversion_type"]:checked').id;
  console.log("Selected radio button is  " + selectedRadio);
 
