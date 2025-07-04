@@ -17,8 +17,8 @@ Shaw
 const $ = selector => document.querySelector(selector);      
 const calculateCelsius = temp => (temp-32) * 5/9;             //celcius to farenheit calculation
 const calculateFahrenheit = temp => temp * 9/5 + 32;          //farenheit to celcius calcuation
-const calculateMeters = meters => meters / 3.2808;            //feet to meters calcuations
-const calculateFeet = feet => feet * 3.2808;                  //meters to feet calcuation
+const calculateMeters = length => length/ 3.2808;            //feet to meters calcuations
+const calculateFeet = length => length * 3.2808;             //meters to feet calcuation
 
 const toggleDisplay = (label1Text, label2Text) => {           //Toggles the values for label 1 and label 2
     
